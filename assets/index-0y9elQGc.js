@@ -186,7 +186,6 @@ Error generating stack: `+o.message+`
               position: absolute;
               left: 110px;
               display: block;
-              height: 80%;
               margin-top: 5px;
 
               height: calc(100% - 10px);
@@ -275,18 +274,17 @@ Error generating stack: `+o.message+`
               position: relative;
               width: inherit;
               span {
+                font-size: 14px;
                 position: absolute;
                 &:first-of-type {
                   width: 78px;
                   display: block;
                   left: 0;
                   text-align: right;
-                  font-size: 14px;
                 }
                 &:nth-of-type(2) {
                   width: 10px;
                   text-align: right;
-                  font-size: 14px;
                   right: 0;
                 }
               }
@@ -306,7 +304,6 @@ Error generating stack: `+o.message+`
                 left: 86px;
 
                 display: block;
-                height: 80%;
                 margin-top: 5px;
 
                 height: calc(100% - 10px);
@@ -342,11 +339,11 @@ Error generating stack: `+o.message+`
   }
   @media only screen and (max-width: 960px) {
     > div {
-      display: block;
       padding: 0 10%;
+      align-items: center;
+      justify-content: center;
     }
     .info {
-      display: flex;
       > div {
         &:nth-of-type(1) {
           display: flex;
@@ -379,9 +376,9 @@ Error generating stack: `+o.message+`
     }
     > div.info {
       padding: 96px 0;
-      height: 100vw;
+      height: calc(100vh - 192px);
       flex-direction: column;
-      gap: 32px;
+      gap: 16px;
       > div {
         &:nth-of-type(1) {
           width: 100%;
@@ -391,20 +388,36 @@ Error generating stack: `+o.message+`
           gap: 30px;
 
           img {
-            width: 96px;
+            width: 106px;
             height: 164px;
           }
           > ul {
             > li {
-              margin-bottom: 8px;
+              margin-bottom: 6px;
               line-height: 1.5;
-              font-size: 13px;
+              font-size: 12px;
             }
           }
         }
         &:nth-of-type(2) {
-          width: 80%;
+          width: 75%;
+          padding: 10px 30px 30px 5px;
           margin-right: 0;
+          h2 {
+            font-size: 16px;
+          }
+          ul {
+            margin-top: 10px;
+          }
+          li {
+            margin-top: 8px;
+            height: 20px;
+            line-height: 20px;
+
+            span {
+              font-size: 12px;
+            }
+          }
         }
       }
     }
@@ -624,7 +637,7 @@ Error generating stack: `+o.message+`
       }
       ul.nav {
         z-index: 10;
-        bottom: 14%;
+        bottom: 5%;
         > li {
           width: 20px;
           cursor: pointer;
@@ -690,7 +703,7 @@ Error generating stack: `+o.message+`
   display: flex;
   flex-direction: column;
   /* overflow-y: auto; */
-  scroll-snap-type: ${({isScrolling:e})=>e?"y":"y mandatory"};
+  scroll-snap-type: ${({isScrolling:e})=>e?"none":"y mandatory"};
   max-width: 100vw;
   height: 100vh;
   overflow-x: hidden;
