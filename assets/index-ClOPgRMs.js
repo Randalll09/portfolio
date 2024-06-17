@@ -533,7 +533,7 @@ Error generating stack: `+o.message+`
       }
     }
   }
-`,Ty=({data:e})=>x.jsxs(Py,{children:[x.jsx("div",{className:"img",children:x.jsx("img",{src:"/img/"+e.img})}),x.jsx("div",{className:"info",children:x.jsxs("div",{children:[x.jsx("h2",{children:e.name}),x.jsx("p",{children:e.cont}),x.jsxs("div",{children:[x.jsx("p",{children:"Program: "}),x.jsx("ul",{children:e.program.map((t,n)=>x.jsx("li",{children:t},n))})]}),x.jsxs("p",{children:["참여도: ",e.contribution]}),x.jsxs("p",{children:["모바일: ",e.mobile?"모바일 지원":"모바일 지원하지 않음"]}),x.jsx("a",{className:"btn",href:e.site,target:"blank",children:"방문하기"})]})})]}),Oy=vn.div`
+`,Ty=({data:e})=>x.jsxs(Py,{children:[x.jsx("div",{className:"img",children:x.jsx("img",{src:"img/"+e.img})}),x.jsx("div",{className:"info",children:x.jsxs("div",{children:[x.jsx("h2",{children:e.name}),x.jsx("p",{children:e.cont}),x.jsxs("div",{children:[x.jsx("p",{children:"Program: "}),x.jsx("ul",{children:e.program.map((t,n)=>x.jsx("li",{children:t},n))})]}),x.jsxs("p",{children:["참여도: ",e.contribution]}),x.jsxs("p",{children:["모바일: ",e.mobile?"모바일 지원":"모바일 지원하지 않음"]}),x.jsx("a",{className:"btn",href:e.site,target:"blank",children:"방문하기"})]})})]}),Oy=vn.div`
   background-color: ${({theme:e})=>e.colors.bgThree};
   position: relative;
   h1 {
