@@ -1,5 +1,14 @@
 export const webData = [
   {
+    name: 'VIDO',
+    cont: '영상 판매및 전시 웹사이트',
+    site: 'https://vido.gallery/',
+    img: 'vidoweb.png',
+    program: ['React', 'Styled Components', 'React Query'],
+    contribution: '프론트엔트: 100% \n (로그인/회원가입, 영상업로드 기능 구현)',
+    mobile: true,
+  },
+  {
     name: 'VERS',
     cont: '미디어 회사 웹사이트',
     site: 'https://vers.kr/',

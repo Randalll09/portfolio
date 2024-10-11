@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import px2vw from '../data/px2vw';
+import { motion } from 'framer-motion';
 
-const Div = styled.div`
+const Div = styled(motion.div)`
   display: flex;
   width: 44vw;
   justify-content: space-between;
@@ -25,6 +26,7 @@ const Div = styled.div`
       }
       > p {
         margin-top: 12px;
+        white-space: pre-line;
         &:first-of-type {
           text-align: center;
         }
@@ -104,7 +106,7 @@ const Div = styled.div`
       height: fit-content;
       > img {
         height: fit-content;
-        width: 75vw;
+        width: 55vw;
       }
     }
     > div.info {
@@ -127,11 +129,43 @@ const Div = styled.div`
   }
 `;
 
-const WebEl = ({ data }) => {
+const variants = {
+  enter: (direction) => {
+    return {
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+    };
+  },
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction) => {
+    return {
+      zIndex: 0,
+      x: direction < 0 ? 300 : -300,
+      opacity: 0,
+    };
+  },
+};
+
+const WebEl = ({ data, direction }) => {
   return (
-    <Div>
+    <Div
+      key={data.img}
+      custom={direction}
+      variants={variants}
+      initial="enter"
+      animate="center"
+      exit="exit"
+      transition={{
+        x: { type: 'spring', stiffness: 300, damping: 30, duration: 0.2 },
+        opacity: { duration: 0.5 },
+      }}
+    >
       <div className="img">
-        <img src={'/img/' + data.img} />
+        <img src={'img/' + data.img} />
       </div>
       <div className="info">
         <div>

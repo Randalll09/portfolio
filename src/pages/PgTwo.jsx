@@ -2,8 +2,9 @@ import React from 'react';
 import { Element } from 'react-scroll';
 import styled from 'styled-components';
 import px2vw from '../data/px2vw';
+import { motion } from 'framer-motion';
 
-const Div = styled.div`
+const Div = styled(motion.div)`
   position: relative;
   background-color: ${({ theme }) => theme.colors.bgTwo};
   width: 100vw;
@@ -98,7 +99,6 @@ const Div = styled.div`
               position: absolute;
               left: 110px;
               display: block;
-              height: 80%;
               margin-top: 5px;
 
               height: calc(100% - 10px);
@@ -187,18 +187,17 @@ const Div = styled.div`
               position: relative;
               width: inherit;
               span {
+                font-size: 14px;
                 position: absolute;
                 &:first-of-type {
                   width: 78px;
                   display: block;
                   left: 0;
                   text-align: right;
-                  font-size: 14px;
                 }
                 &:nth-of-type(2) {
                   width: 10px;
                   text-align: right;
-                  font-size: 14px;
                   right: 0;
                 }
               }
@@ -218,7 +217,6 @@ const Div = styled.div`
                 left: 86px;
 
                 display: block;
-                height: 80%;
                 margin-top: 5px;
 
                 height: calc(100% - 10px);
@@ -254,11 +252,11 @@ const Div = styled.div`
   }
   @media only screen and (max-width: 960px) {
     > div {
-      display: block;
       padding: 0 10%;
+      align-items: center;
+      justify-content: center;
     }
     .info {
-      display: flex;
       > div {
         &:nth-of-type(1) {
           display: flex;
@@ -291,9 +289,9 @@ const Div = styled.div`
     }
     > div.info {
       padding: 96px 0;
-      height: 100vw;
+      height: calc(100vh - 192px);
       flex-direction: column;
-      gap: 32px;
+      gap: 16px;
       > div {
         &:nth-of-type(1) {
           width: 100%;
@@ -303,20 +301,36 @@ const Div = styled.div`
           gap: 30px;
 
           img {
-            width: 96px;
+            width: 106px;
             height: 164px;
           }
           > ul {
             > li {
-              margin-bottom: 8px;
+              margin-bottom: 6px;
               line-height: 1.5;
-              font-size: 13px;
+              font-size: 12px;
             }
           }
         }
         &:nth-of-type(2) {
-          width: 80%;
+          width: 75%;
+          padding: 10px 30px 30px 5px;
           margin-right: 0;
+          h2 {
+            font-size: 16px;
+          }
+          ul {
+            margin-top: 10px;
+          }
+          li {
+            margin-top: 8px;
+            height: 20px;
+            line-height: 20px;
+
+            span {
+              font-size: 12px;
+            }
+          }
         }
       }
     }
@@ -326,9 +340,9 @@ const Div = styled.div`
 const PgTwo = () => {
   return (
     <Element className="element" name="page2">
-      <Div>
+      <Div viewport={{ once: false }}>
         <h1>PROFILE</h1>
-        <div className="info">
+        <motion.div className="info">
           <div>
             <img src="img/ProfilePic.jpg" />
             <ul>
@@ -392,7 +406,7 @@ const PgTwo = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </motion.div>
       </Div>
     </Element>
   );

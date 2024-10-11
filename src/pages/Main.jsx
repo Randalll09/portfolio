@@ -62,7 +62,8 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   /* overflow-y: auto; */
-  scroll-snap-type: ${({ isScrolling }) => (isScrolling ? 'y' : 'y mandatory')};
+  scroll-snap-type: ${({ isScrolling }) =>
+    isScrolling ? 'none' : 'y mandatory'};
   max-width: 100vw;
   height: 100vh;
   overflow-x: hidden;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { webData } from '../data/webData';
 import WebEl from '../comp/WebEl';
 import { Element } from 'react-scroll';
+import { AnimatePresence } from 'framer-motion';
 
 const Div = styled.div`
   background-color: ${({ theme }) => theme.colors.bgThree};
@@ -44,13 +45,34 @@ const Div = styled.div`
         }
       }
     }
-    > .port {
-      position: absolute;
-      top: 35%;
+    > .flex {
       width: 100vw;
+      top: 35%;
+      position: absolute;
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 32px;
+      button.nav {
+        width: 32px;
+        height: 32px;
+        border: 2px solid ${({ theme }) => theme.colors.webButton};
+        background-color: white;
+        border-radius: 100%;
+        cursor: pointer;
+        font-size: 20px;
+        text-align: center;
+        line-height: 20px;
+        color: ${({ theme }) => theme.colors.webButton};
+        transition: all 0.2s;
+        &:hover {
+          color: white;
+          background-color: ${({ theme }) => theme.colors.webButton};
+        }
+      }
+    }
+    .port {
+      display: flex;
     }
   }
   @media only screen and (max-width: 1280px) {
@@ -61,13 +83,18 @@ const Div = styled.div`
       ul.nav {
         top: 8%;
       }
-      > .port {
+      > .flex {
+        button.nav {
+          display: none;
+        }
         position: absolute;
         width: 100vw;
 
         display: flex;
         justify-content: center;
         align-items: center;
+        .port {
+        }
       }
     }
   }
@@ -85,17 +112,22 @@ const Div = styled.div`
       writing-mode: vertical-rl;
     }
     div.cont {
-      > .port {
-        top: 0;
+      .flex {
+        top: 10vh;
         width: 100vw;
-        height: calc(100vh - 96px);
+        height: calc(90vh - 96px);
         display: flex;
         justify-content: center;
         align-items: center;
+        .port {
+        }
+        button.nav {
+          display: none;
+        }
       }
       ul.nav {
         z-index: 10;
-        bottom: 14%;
+        bottom: 5%;
         > li {
           width: 20px;
           cursor: pointer;
@@ -108,6 +140,16 @@ const Div = styled.div`
 
 const PgThree = () => {
   const [idx, setIdx] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const onClickBtn = (direction) => {
+    if (direction < 0) {
+      setDirection(-1);
+      setIdx((i) => (i - 1 < 0 ? webData.length - 1 : i - 1));
+    } else {
+      setDirection(1);
+      setIdx((i) => (i + 1 > webData.length - 1 ? 0 : i + 1));
+    }
+  };
   return (
     <Div>
       <Element name="page3" className="element">
@@ -122,8 +164,18 @@ const PgThree = () => {
               ></li>
             ))}
           </ul>
-          <div className={'port'}>
-            <WebEl data={webData[idx]} />
+          <div className="flex">
+            <button className="nav" onClick={() => onClickBtn(-1)}>
+              {'<'}
+            </button>
+            <div className={'port'}>
+              <AnimatePresence>
+                <WebEl data={webData[idx]} direction={direction} />
+              </AnimatePresence>
+            </div>
+            <button className="nav" onClick={() => onClickBtn(1)}>
+              {'>'}
+            </button>
           </div>
         </div>
       </Element>
