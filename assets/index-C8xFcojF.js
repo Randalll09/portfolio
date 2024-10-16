@@ -793,7 +793,7 @@ Error generating stack: `+o.message+`
     max-width: 80vw;
     max-height: 80vh;
   }
-`,P_=()=>{const[e,t]=A.useState(-1);function n(i){let o=[];for(let s=1;s<=i;s++)o.push(s);return o}let r=n(10);return P.jsx(w_,{children:P.jsxs(no,{name:"page4",className:"element",children:[P.jsx("h1",{children:"DESIGN"}),P.jsxs("div",{children:[P.jsx("ul",{children:r.map((i,o)=>P.jsx("li",{onClick:()=>t(o),children:P.jsx(x_,{children:P.jsx("img",{src:`/img/design/${o}.png`})})},o))}),P.jsx(a0,{children:e>=0&&P.jsxs(S_,{onClick:()=>t(-1),initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},children:[P.jsx("div",{className:"bg"}),P.jsx("img",{src:`/img/design/${e}.png`})]},"popup")}),P.jsx("a",{href:"/img/design/web_design.pdf",target:"blank",children:"가상의 가구 홈페이지 웹디자인 (pdf)"})]})]})})},T_=Tt.nav`
+`,P_=()=>{const[e,t]=A.useState(-1);function n(i){let o=[];for(let s=1;s<=i;s++)o.push(s);return o}let r=n(10);return P.jsx(w_,{children:P.jsxs(no,{name:"page4",className:"element",children:[P.jsx("h1",{children:"DESIGN"}),P.jsxs("div",{children:[P.jsx("ul",{children:r.map((i,o)=>P.jsx("li",{onClick:()=>t(o),children:P.jsx(x_,{children:P.jsx("img",{src:`img/design/${o}.png`})})},o))}),P.jsx(a0,{children:e>=0&&P.jsxs(S_,{onClick:()=>t(-1),initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},children:[P.jsx("div",{className:"bg"}),P.jsx("img",{src:`img/design/${e}.png`})]},"popup")}),P.jsx("a",{href:"img/design/web_design.pdf",target:"blank",children:"가상의 가구 홈페이지 웹디자인 (pdf)"})]})]})})},T_=Tt.nav`
   position: fixed;
   right: 15%;
   z-index: 4;
