@@ -759,6 +759,21 @@ Error generating stack: `+o.message+`
       }
     }
   }
+  @media only screen and (orientation: portrait) {
+    .element {
+      h1 {
+        font-size: 62px;
+      }
+      ul {
+        width: 100vw;
+        gap: 4vw;
+        li {
+          width: 20vw;
+          height: 30vw;
+        }
+      }
+    }
+  }
 `,x_=Tt.div`
   > img {
     width: 200px;
@@ -769,6 +784,12 @@ Error generating stack: `+o.message+`
     transition: all 0.2s;
     &:hover {
       transform: scale(1.5);
+    }
+  }
+  @media only screen and (orientation: portrait) {
+    > img {
+      width: 20vw;
+      height: 30vw;
     }
   }
 `,S_=Tt(Ge.div)`
